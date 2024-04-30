@@ -2,9 +2,9 @@
   exit;
 }
 
-class sippis_acf_field_network_post_select extends acf_field {
+class sippis_acf_field_network_post_select extends acf_field { // phpcs:ignore
 
-  function __construct( $settings ) {
+  function __construct( $settings ) { // phpcs:ignore
     $this->settings = $settings;
 
     $this->name     = 'network_post_select';
@@ -24,12 +24,12 @@ class sippis_acf_field_network_post_select extends acf_field {
     parent::__construct();
   } // end __construct
 
-  function ajax_query() {
+  function ajax_query() { // phpcs:ignore
     if ( ! acf_verify_ajax() ) {
       die();
     }
 
-    $response = $this->get_ajax_query( $_POST );
+    $response = $this->get_ajax_query( $_POST ); // phpcs:ignore
 
     acf_send_ajax_results( $response );
   } // end ajax_query
@@ -40,7 +40,7 @@ class sippis_acf_field_network_post_select extends acf_field {
    * @param  array  $options  options from AJAX
    * @return array            array of posts
    */
-  function get_ajax_query( $options = [] ) {
+  function get_ajax_query( $options = [] ) { // phpcs:ignore
     $results    = [];
     $args       = [];
     $s          = false;
@@ -69,9 +69,9 @@ class sippis_acf_field_network_post_select extends acf_field {
     }
 
     // filters for get_sites query
-    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites', $get_sites_args, $field, $options['post_id'] );
-    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites/name=' . $field['name'], $get_sites_args, $field, $options['post_id'] );
-    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites/key=' . $field['key'], $get_sites_args, $field, $options['post_id'] );
+    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites', $get_sites_args, $field, $options['post_id'] ); // phpcs:ignore
+    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites/name=' . $field['name'], $get_sites_args, $field, $options['post_id'] ); // phpcs:ignore
+    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites/key=' . $field['key'], $get_sites_args, $field, $options['post_id'] ); // phpcs:ignore
 
     // get sites in network
     $sites = get_sites( $get_sites_args );
@@ -116,10 +116,10 @@ class sippis_acf_field_network_post_select extends acf_field {
       }
 
       // filters
-      $args = apply_filters( 'acf/fields/network_post_select/query', $args, $field, $options['post_id'] );
-      $args = apply_filters( 'acf/fields/network_post_select/query/name=' . $field['name'], $args, $field, $options['post_id'] );
-      $args = apply_filters( 'acf/fields/network_post_select/query/key=' . $field['key'], $args, $field, $options['post_id'] );
-      
+      $args = apply_filters( 'acf/fields/network_post_select/query', $args, $field, $options['post_id'] ); // phpcs:ignore
+      $args = apply_filters( 'acf/fields/network_post_select/query/name=' . $field['name'], $args, $field, $options['post_id'] ); // phpcs:ignore
+      $args = apply_filters( 'acf/fields/network_post_select/query/key=' . $field['key'], $args, $field, $options['post_id'] ); // phpcs:ignore
+
       if ( ! array_key_exists( 's', $args ) ) {
         $is_search = false;
       }
@@ -133,7 +133,7 @@ class sippis_acf_field_network_post_select extends acf_field {
 
         $data = [
           'text'      => get_bloginfo( 'name' ) . ' - ' . strtolower( $group_title ),
-          'children'  => []
+          'children'  => [],
         ];
 
         // convert post objects to post titles
@@ -168,7 +168,7 @@ class sippis_acf_field_network_post_select extends acf_field {
 
     $response = [
       'results' => $results,
-      'limit'   => $args['posts_per_page']
+      'limit'   => $args['posts_per_page'],
     ];
 
     return $response;
@@ -182,17 +182,17 @@ class sippis_acf_field_network_post_select extends acf_field {
    * @param  integer  $site_id network site ID
    * @return array
    */
-  function get_post_result( $id, $text, $site_id ) {
+  function get_post_result( $id, $text, $site_id ) { // phpcs:ignore
     $result = [
       'id'    => $site_id . '|' . $id,
-      'text'  => $text
+      'text'  => $text,
     ];
 
     $search = '| ' . __( 'Parent', 'acf' ) . ':';
     $pos = strpos( $text, $search );
 
     if ( $pos !== false ) {
-      $result['description'] = substr( $text, $pos+2 );
+      $result['description'] = substr( $text, $pos + 2 );
       $result['text'] = substr( $text, 0, $pos );
     }
 
@@ -208,7 +208,7 @@ class sippis_acf_field_network_post_select extends acf_field {
    * @param  integer  $is_search if request comes from search
    * @return string
    */
-  function get_post_title( $post, $field, $post_id = 0, $is_search = 0 ) {
+  function get_post_title( $post, $field, $post_id = 0, $is_search = 0 ) { // phpcs:ignore
     $current_site_id = get_current_blog_id();
 
     // switch to correct site for getting the title from right post
@@ -226,9 +226,9 @@ class sippis_acf_field_network_post_select extends acf_field {
     $title = $title . ' (' . $site->blogname . ')';
 
     // filters
-    $title = apply_filters('acf/fields/network_post_select/result', $title, $post, $field, $post_id);
-    $title = apply_filters('acf/fields/network_post_select/result/name=' . $field['_name'], $title, $post, $field, $post_id);
-    $title = apply_filters('acf/fields/network_post_select/result/key=' . $field['key'], $title, $post, $field, $post_id);
+    $title = apply_filters('acf/fields/network_post_select/result', $title, $post, $field, $post_id); // phpcs:ignore
+    $title = apply_filters('acf/fields/network_post_select/result/name=' . $field['_name'], $title, $post, $field, $post_id); // phpcs:ignore
+    $title = apply_filters('acf/fields/network_post_select/result/key=' . $field['key'], $title, $post, $field, $post_id); // phpcs:ignore
 
     // switch back to current site
     switch_to_blog( $current_site_id );
@@ -244,7 +244,7 @@ class sippis_acf_field_network_post_select extends acf_field {
    * @param  array    $field   field options
    * @return array
    */
-  function update_value( $value, $post_id, $field ) {
+  function update_value( $value, $post_id, $field ) { // phpcs:ignore
     if ( empty( $value ) ) {
       return $value;
     }
@@ -280,7 +280,7 @@ class sippis_acf_field_network_post_select extends acf_field {
    * @param  array  $field field options
    * @return array
    */
-  function get_posts( $value, $field ) {
+  function get_posts( $value, $field ) { // phpcs:ignore
     $posts = [];
 
     // allowed sites
@@ -290,16 +290,16 @@ class sippis_acf_field_network_post_select extends acf_field {
     }
 
     // filters for get_sites query
-    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites', $get_sites_args, $field, $options['post_id'] );
-    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites/name=' . $field['name'], $get_sites_args, $field, $options['post_id'] );
-    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites/key=' . $field['key'], $get_sites_args, $field, $options['post_id'] );
-    
+    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites', $get_sites_args, $field, $options['post_id'] ); // phpcs:ignore
+    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites/name=' . $field['name'], $get_sites_args, $field, $options['post_id'] ); // phpcs:ignore
+    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites/key=' . $field['key'], $get_sites_args, $field, $options['post_id'] ); // phpcs:ignore
+
     // get sites in network
     $sites = get_sites( $get_sites_args );
 
     // store current site id
     $current_site_id = get_current_blog_id();
-    
+
     $args = [
       'post__in'  => $value,
       'post_type' => $field['post_type'],
@@ -334,12 +334,11 @@ class sippis_acf_field_network_post_select extends acf_field {
    *
    * @param  array  $field field options
    */
-  function render_field( $field ) {
-    $field['type']      = 'select';
-    // $field['multiple']  = false;
-    $field['ui']        = true;
-    $field['ajax']      = true;
-    $field['choices']   = [];
+  function render_field( $field ) { // phpcs:ignore
+    $field['type'] = 'select';
+    $field['ui'] = true;
+    $field['ajax'] = true;
+    $field['choices'] = [];
 
     // try to get posts based on field value
     $posts = $this->get_posts( $field['value'], $field );
@@ -359,11 +358,11 @@ class sippis_acf_field_network_post_select extends acf_field {
     acf_render_field( $field );
   } // end render_field
 
-  function input_admin_enqueue_scripts() {
-    $url      = $this->settings['url'];
+  function input_admin_enqueue_scripts() { // phpcs:ignore
+    $url      = $this->settings['url']; // phpcs:ignore
     $version  = $this->settings['version'];
 
-    wp_register_script( 'acf-field-network-post-select', "{$url}assets/js/input.js", [ 'acf-input' ], $version );
+    wp_register_script( 'acf-field-network-post-select', "{$url}assets/js/input.js", [ 'acf-input' ], $version ); // phpcs:ignore
     wp_enqueue_script( 'acf-field-network-post-select' );
   } // end input_admin_enqueue_scripts
 
@@ -372,10 +371,10 @@ class sippis_acf_field_network_post_select extends acf_field {
    *
    * @param  array  $field field options
    */
-  function render_field_settings( $field ) {
-    $sites = [];
+  function render_field_settings( $field ) { // phpcs:ignore
+    $sites = []; // phpcs:ignore
     $sites_raw = get_sites( [
-      'number'  => apply_filters( 'acf/fields/network_post_select/settings/max_sites', 100, $field ),
+      'number'  => apply_filters( 'acf/fields/network_post_select/settings/max_sites', 100, $field ), // phpcs:ignore
     ] );
 
     foreach ( $sites_raw as $site ) {

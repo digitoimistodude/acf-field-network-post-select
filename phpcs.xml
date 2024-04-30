@@ -112,6 +112,11 @@
         <exclude name="Squiz.Commenting.VariableComment.WrongStyle" />
         <exclude name="PSR2.Classes.PropertyDeclaration.Underscore" />
         <exclude name="Universal.Operators.DisallowShortTernary.Found" />
+        <exclude name="Generic.Classes.OpeningBraceSameLine.ContentAfterBrace" />
+        <exclude name="PEAR.Functions.FunctionCallSignature" />
+        <exclude name="Squiz.Commenting.FunctionComment" />
+        <exclude name="WordPress.WhiteSpace.ControlStructureSpacing" />
+        <exclude name="Squiz.ControlStructures.ControlSignature" />
     </rule>
 
     <!-- Include sniffs for PHP cross-version compatibility. -->
