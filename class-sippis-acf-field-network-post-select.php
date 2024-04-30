@@ -1,4 +1,19 @@
-<?php if ( ! defined( 'ABSPATH' ) ) {
+<?php
+/**
+ * File: class-sippis-acf-field-network-post-select.php
+ *
+ * Description: class-sippis-acf-field-network-post-select
+ *
+ * @Author: Luka Airassalo
+ * @Date: 2024-04-30 13:14:27
+ * @Last Modified by:   Luka Airassalo
+ * @Last Modifie time: 2024-04-30 13:18:37
+ *
+ * @package acf-field-network-post-select
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ */
+
+ if ( ! defined( 'ABSPATH' ) ) {
   exit;
 }
 
@@ -69,9 +84,9 @@ class sippis_acf_field_network_post_select extends acf_field { // phpcs:ignore
     }
 
     // filters for get_sites query
-    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites', $get_sites_args, $field, $options['post_id'] ); // phpcs:ignore
-    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites/name=' . $field['name'], $get_sites_args, $field, $options['post_id'] ); // phpcs:ignore
-    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites/key=' . $field['key'], $get_sites_args, $field, $options['post_id'] ); // phpcs:ignore
+    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites', $get_sites_args, $field ); // phpcs:ignore
+    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites/name=' . $field['name'], $get_sites_args, $field ); // phpcs:ignore
+    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites/key=' . $field['key'], $get_sites_args, $field ); // phpcs:ignore
 
     // get sites in network
     $sites = get_sites( $get_sites_args );
@@ -116,9 +131,9 @@ class sippis_acf_field_network_post_select extends acf_field { // phpcs:ignore
       }
 
       // filters
-      $args = apply_filters( 'acf/fields/network_post_select/query', $args, $field, $options['post_id'] ); // phpcs:ignore
-      $args = apply_filters( 'acf/fields/network_post_select/query/name=' . $field['name'], $args, $field, $options['post_id'] ); // phpcs:ignore
-      $args = apply_filters( 'acf/fields/network_post_select/query/key=' . $field['key'], $args, $field, $options['post_id'] ); // phpcs:ignore
+      $args = apply_filters( 'acf/fields/network_post_select/query', $args, $field ); // phpcs:ignore
+      $args = apply_filters( 'acf/fields/network_post_select/query/name=' . $field['name'], $args, $field ); // phpcs:ignore
+      $args = apply_filters( 'acf/fields/network_post_select/query/key=' . $field['key'], $args, $field ); // phpcs:ignore
 
       if ( ! array_key_exists( 's', $args ) ) {
         $is_search = false;
@@ -290,9 +305,9 @@ class sippis_acf_field_network_post_select extends acf_field { // phpcs:ignore
     }
 
     // filters for get_sites query
-    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites', $get_sites_args, $field, $options['post_id'] ); // phpcs:ignore
-    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites/name=' . $field['name'], $get_sites_args, $field, $options['post_id'] ); // phpcs:ignore
-    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites/key=' . $field['key'], $get_sites_args, $field, $options['post_id'] ); // phpcs:ignore
+    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites', $get_sites_args, $field ); // phpcs:ignore
+    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites/name=' . $field['name'], $get_sites_args, $field ); // phpcs:ignore
+    $get_sites_args = apply_filters( 'acf/fields/network_post_select/get_sites/key=' . $field['key'], $get_sites_args, $field ); // phpcs:ignore
 
     // get sites in network
     $sites = get_sites( $get_sites_args );
@@ -305,8 +320,14 @@ class sippis_acf_field_network_post_select extends acf_field { // phpcs:ignore
       'post_type' => $field['post_type'],
     ];
 
+    $posts_per_page = 999;
+
+    if ( isset( $this->query_defaults['posts_per_page'] ) && ! empty( $this->query_defaults['posts_per_page'] ) ) {
+      $posts_per_page = $this->query_defaults['posts_per_page'];
+    }
+
     if ( empty( $value ) ) {
-      $args['posts_per_page'] = $this->query_defaults['posts_per_page'];
+      $args['posts_per_page'] = $posts_per_page;
     }
 
     // loop sites
