@@ -1,3 +1,8 @@
+### 1.2.2: 2024-04-30
+
+* Don't use options variable since it's not available
+* Add check for non existing key in class defaults
+
 ### 1.2.1: 2024-04-30
 
 * Cleanups, add phpcs
