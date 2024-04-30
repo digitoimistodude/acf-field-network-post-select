@@ -359,7 +359,9 @@ class sippis_acf_field_network_post_select extends acf_field { // phpcs:ignore
     }
 
     // change field value format so it's in same format with AJAX query return
-    $field['value'] = $field['value']['site_id'] . '|' . $field['value']['post_id'];
+    if ( isset( $field['value']['site_id'] ) && isset( $field['value']['post_id'] ) ) {
+      $field['value'] = $field['value']['site_id'] . '|' . $field['value']['post_id'];
+    }
 
     acf_render_field( $field );
   } // end render_field

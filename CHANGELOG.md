@@ -1,3 +1,7 @@
+### 1.2.3: 2024-04-30
+
+* Additional isset check for array key, class-sippis-acf-field-network-post-select.php:362
+
 ### 1.2.2: 2024-04-30
 
 * Remove unnecessary fileheaders
