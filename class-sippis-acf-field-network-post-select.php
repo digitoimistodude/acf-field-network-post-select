@@ -1,19 +1,4 @@
-<?php
-/**
- * File: class-sippis-acf-field-network-post-select.php
- *
- * Description: class-sippis-acf-field-network-post-select
- *
- * @Author: Luka Airassalo
- * @Date: 2024-04-30 13:14:27
- * @Last Modified by:   Luka Airassalo
- * @Last Modifie time: 2024-04-30 13:18:37
- *
- * @package acf-field-network-post-select
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- */
-
- if ( ! defined( 'ABSPATH' ) ) {
+<?php if ( ! defined( 'ABSPATH' ) ) {
   exit;
 }
 

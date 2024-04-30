@@ -1,19 +1,5 @@
 <?php
 /**
- * File: acf-field-network-post-select.php
- *
- * Description: acf-field-network-post-select
- *
- * @Author:		Luka Airassalo
- * @Date:   		2024-04-30 13:14:27
- * @Last Modified by:   Luka Airassalo
- * @Last Modified time: 2024-04-30 13:23:40
- *
- * @package acf-field-network-post-select
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- */
-
-/**
  * Plugin Name: Advanced Custom Fields: Network posts select field
  * Plugin URI: https://github.com/timiwahalahti/acf-field-post-object-network/
  * Description: Adds a ACF field that allows selecting posts across the network sites.

@@ -1,5 +1,6 @@
 ### 1.2.2: 2024-04-30
 
+* Remove unnecessary fileheaders
 * Don't use options variable since it's not available
 * Add check for non existing key in class defaults
 
