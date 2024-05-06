@@ -116,9 +116,9 @@ class sippis_acf_field_network_post_select extends acf_field { // phpcs:ignore
       }
 
       // filters
-      $args = apply_filters( 'acf/fields/network_post_select/query', $args, $field ); // phpcs:ignore
-      $args = apply_filters( 'acf/fields/network_post_select/query/name=' . $field['name'], $args, $field ); // phpcs:ignore
-      $args = apply_filters( 'acf/fields/network_post_select/query/key=' . $field['key'], $args, $field ); // phpcs:ignore
+      $args = apply_filters( 'acf/fields/network_post_select/query', $args, $field, null ); // phpcs:ignore
+      $args = apply_filters( 'acf/fields/network_post_select/query/name=' . $field['name'], $args, $field, null ); // phpcs:ignore
+      $args = apply_filters( 'acf/fields/network_post_select/query/key=' . $field['key'], $args, $field, null ); // phpcs:ignore
 
       if ( ! array_key_exists( 's', $args ) ) {
         $is_search = false;
