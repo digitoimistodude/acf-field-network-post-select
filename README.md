@@ -1,6 +1,6 @@
 # Advanced Custom Fields: Network posts select field
 
-![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/timiwahalahti/acf-field-network-post-select?style=flat-square) ![Tested_up_to WordPress_5.5](https://img.shields.io/badge/tested_up_to-WordPress_5.5-blue.svg?style=flat-square) ![Compatible_with AFC_5](https://img.shields.io/badge/compatible_with-ACF_5-green.svg?style=flat-square) ![GitHub](https://img.shields.io/github/license/timiwahalahti/acf-field-network-post-select?style=flat-square)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/digitoimistodude/acf-field-network-post-select?style=flat-square) ![Tested_up_to WordPress 6.5.2](https://img.shields.io/badge/tested_up_to-WordPress_6.5.2-blue.svg?style=flat-square) ![Compatible_with AFC_6](https://img.shields.io/badge/compatible_with-ACF_6-green.svg?style=flat-square) ![GitHub](https://img.shields.io/github/license/digitoimistodude/acf-field-network-post-select?style=flat-square)
 
 **Adds a ACF field that allows selecting posts across the network sites.**
 
@@ -22,7 +22,7 @@ In case you like to live dangerously, there's also `acf/fields/network_post_sele
 
 ## Changelog
 
-Changelog can be found from [releases page](https://github.com/timiwahalahti/acf-field-network-post-select/releases) and separate [CHANGELOG.md](https://github.com/timiwahalahti/acf-field-network-post-select/tree/main/CHANGELOG.md) file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+Changelog can be found from [releases page](https://github.com/digitoimistodude/acf-field-network-post-select/releases) and separate [CHANGELOG.md](https://github.com/digitoimistodude/acf-field-network-post-select/tree/main/CHANGELOG.md) file.
 
 ## Contributing
 
