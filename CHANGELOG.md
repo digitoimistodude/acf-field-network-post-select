@@ -1,3 +1,7 @@
+### 1.2.5: 2024-05-06
+
+* Change format of filler value to match the expected format
+
 ### 1.2.4: 2024-05-06
 
 * Use filler value instead of just removing the options variable
