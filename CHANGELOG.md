@@ -1,3 +1,7 @@
+### 1.2.4: 2024-05-06
+
+* Use filler value instead of just removing the options variable
+
 ### 1.2.3: 2024-04-30
 
 * Additional isset check for array key, class-sippis-acf-field-network-post-select.php:362
