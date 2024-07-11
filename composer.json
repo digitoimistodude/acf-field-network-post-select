@@ -2,18 +2,11 @@
   "name": "digitoimistodude/acf-field-network-post-select",
   "type": "wordpress-plugin",
   "description": "Adds a ACF field that allows selecting posts across the network sites.",
-  "homepage": "https://github.com/timiwahalahti/acf-field-network-post-select",
+  "homepage": "https://github.com/digitoimistodude/acf-field-network-post-select",
   "keywords": [
     "wordpress",
     "plugin"
   ],
   "license": "GPLv3",
-  "version": "1.2.5",
-  "authors": [
-    {
-      "name": "Timi Wahalahti",
-      "email": "timi@dude.fi",
-      "homepage": "https://sipp.is"
-    }
-  ]
+  "version": "1.2.5"
 }
