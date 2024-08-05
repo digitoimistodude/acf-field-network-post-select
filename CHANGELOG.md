@@ -1,4 +1,4 @@
-### 1.2.5: 2024-08-05
+### 1.2.6: 2024-08-05
 
 * Compability with ACF 6.3.2 security updates
 
