@@ -1,3 +1,7 @@
+### 1.2.7: 2024-08-05
+
+* Add Plugin Update Checker
+
 ### 1.2.6: 2024-08-05
 
 * Compability with ACF 6.3.2 security updates
