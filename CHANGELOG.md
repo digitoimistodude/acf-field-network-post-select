@@ -1,3 +1,7 @@
+### 1.2.10: 2024-08-05
+
+* Re-remove Plugin Update Checker
+
 ### 1.2.9: 2024-08-05
 
 * Re-add Plugin Update Checker
