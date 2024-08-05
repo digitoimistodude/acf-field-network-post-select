@@ -25,7 +25,14 @@ class sippis_acf_field_network_post_select extends acf_field { // phpcs:ignore
   } // end __construct
 
   function ajax_query() { // phpcs:ignore
-    if ( ! acf_verify_ajax() ) {
+    $args = acf_request_args(
+      array(
+        'nonce'     => '',
+        'field_key' => '',
+      )
+    );
+
+    if ( ! acf_verify_ajax( $args['nonce'], $args['field_key'] ) ) {
       die();
     }
 

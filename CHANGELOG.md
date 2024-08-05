@@ -1,3 +1,7 @@
+### 1.2.5: 2024-08-05
+
+* Compability with ACF 6.3.2 security updates
+
 ### 1.2.5: 2024-05-06
 
 * Change format of filler value to match the expected format
