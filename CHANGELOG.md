@@ -1,3 +1,7 @@
+### 1.2.8: 2024-08-05
+
+* Remove Plugin Update Checker
+
 ### 1.2.7: 2024-08-05
 
 * Add Plugin Update Checker
