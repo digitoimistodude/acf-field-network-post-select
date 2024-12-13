@@ -1,6 +1,7 @@
 ### 1.2.11: 2024-12-13
 
 * Use field specific nonce to verfy ajax
+* Add support for multiple select
 
 ### 1.2.10: 2024-08-05
 
