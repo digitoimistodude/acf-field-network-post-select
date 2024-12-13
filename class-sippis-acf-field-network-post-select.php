@@ -258,6 +258,20 @@ class sippis_acf_field_network_post_select extends acf_field { // phpcs:ignore
       return $value;
     }
 
+    if ( isset( $field['multiple'] ) && 1 === $field['multiple'] ) {
+      $new_vals = [];
+      foreach ( $value as $val ) {
+        // store site_id and post_id separately
+        $exploded = explode( '|', $val );
+        $new_vals[] = [
+          'site_id'  => acf_get_numeric( $exploded[0] ),
+          'post_id'  => acf_get_numeric( $exploded[1] ),
+        ];
+      }
+
+      return $new_vals;
+    }
+
     // store site_id and post_id separately
     $exploded = explode( '|', $value );
     $value = [
@@ -314,6 +328,10 @@ class sippis_acf_field_network_post_select extends acf_field { // phpcs:ignore
       'post_type' => $field['post_type'],
     ];
 
+    if ( function_exists( 'pll_current_language' ) ) {
+      $args['lang'] = pll_current_language();
+    }
+  
     $posts_per_page = 999;
 
     if ( isset( $this->query_defaults['posts_per_page'] ) && ! empty( $this->query_defaults['posts_per_page'] ) ) {
@@ -330,7 +348,7 @@ class sippis_acf_field_network_post_select extends acf_field { // phpcs:ignore
 
       // get posts
       $new_posts = acf_get_posts( $args );
-
+    
       foreach ( $new_posts as $key => $new_post ) {
         $new_posts[ $key ]->blog_id = $site->blog_id;
       }
@@ -356,8 +374,32 @@ class sippis_acf_field_network_post_select extends acf_field { // phpcs:ignore
     $field['nonce'] = wp_create_nonce( 'acf_field_' . $this->name . '_' . $field['key'] );
     $field['choices'] = [];
 
-    // try to get posts based on field value
-    $posts = $this->get_posts( $field['value'], $field );
+    if ( isset( $field['multiple'] ) && 1 === $field['multiple'] ) {
+      // If we have previous single value, reset
+      if ( isset($field['value']['site_id'] ) ){
+        $field['value'] = [];
+      }
+
+      $posts = $this->get_posts( array_column( $field['value'], 'post_id' ), $field );
+      $new_vals = [];
+      foreach ( $field['value'] as $val ) {
+        // store site_id and post_id separately
+        $new_vals[] = join( '|', $val );
+      }
+
+      $field['value'] = $new_vals;
+    } else {
+      // If we have previous multiple, reset
+      if ( ! isset($field['value']['site_id'] ) ){
+        $field['value'] = [];
+      }
+
+      // try to get posts based on field value
+      $posts = $this->get_posts( $field['value'], $field );
+      
+      // change field value format so it's in same format with AJAX query return
+      $field['value'] = $field['value']['site_id'] . '|' . $field['value']['post_id'];
+    }
 
     if ( $posts ) {
       foreach ( array_keys( $posts ) as $i ) {
