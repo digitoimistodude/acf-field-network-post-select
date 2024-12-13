@@ -1,3 +1,7 @@
+### 1.2.11: 2024-12-13
+
+* Use field specific nonce to verfy ajax
+
 ### 1.2.10: 2024-08-05
 
 * Re-remove Plugin Update Checker

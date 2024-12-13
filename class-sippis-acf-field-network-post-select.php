@@ -32,7 +32,7 @@ class sippis_acf_field_network_post_select extends acf_field { // phpcs:ignore
       )
     );
 
-    if ( ! acf_verify_ajax( $args['nonce'], $args['field_key'] ) ) {
+    if ( ! acf_verify_ajax( $args['nonce'], $args['field_key'], true ) ) {
       die();
     }
 
@@ -353,6 +353,7 @@ class sippis_acf_field_network_post_select extends acf_field { // phpcs:ignore
     $field['type'] = 'select';
     $field['ui'] = true;
     $field['ajax'] = true;
+    $field['nonce'] = wp_create_nonce( 'acf_field_' . $this->name . '_' . $field['key'] );
     $field['choices'] = [];
 
     // try to get posts based on field value
