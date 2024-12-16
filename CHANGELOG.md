@@ -1,3 +1,7 @@
+### 1.2.12: 2024-12-16
+
+* Properly setup field data when rendering
+
 ### 1.2.11: 2024-12-13
 
 * Use field specific nonce to verfy ajax
