@@ -374,6 +374,10 @@ class sippis_acf_field_network_post_select extends acf_field { // phpcs:ignore
     $field['nonce'] = wp_create_nonce( 'acf_field_' . $this->name . '_' . $field['key'] );
     $field['choices'] = [];
 
+    if ( empty( $field['value'] ) ) {
+      $field['value'] = [];
+    }
+
     if ( isset( $field['multiple'] ) && 1 === $field['multiple'] ) {
       // If we have previous single value, reset
       if ( isset($field['value']['site_id'] ) ){
