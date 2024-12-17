@@ -380,7 +380,7 @@ class sippis_acf_field_network_post_select extends acf_field { // phpcs:ignore
 
     if ( isset( $field['multiple'] ) && 1 === $field['multiple'] ) {
       // If we have previous single value, reset
-      if ( isset($field['value']['site_id'] ) ){
+      if ( isset($field['value']['site_id'] ) ) {
         $field['value'] = [];
       }
 
@@ -394,15 +394,15 @@ class sippis_acf_field_network_post_select extends acf_field { // phpcs:ignore
       $field['value'] = $new_vals;
     } else {
       // If we have previous multiple, reset
-      if ( ! isset($field['value']['site_id'] ) ){
+      if ( ! isset($field['value']['site_id'] ) ) {
         $field['value'] = [];
+      } else {
+        // try to get posts based on field value
+        $posts = $this->get_posts( $field['value'], $field );
+        
+        // change field value format so it's in same format with AJAX query return
+        $field['value'] = $field['value']['site_id'] . '|' . $field['value']['post_id'];
       }
-
-      // try to get posts based on field value
-      $posts = $this->get_posts( $field['value'], $field );
-      
-      // change field value format so it's in same format with AJAX query return
-      $field['value'] = $field['value']['site_id'] . '|' . $field['value']['post_id'];
     }
 
     if ( $posts ) {

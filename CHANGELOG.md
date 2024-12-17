@@ -1,3 +1,7 @@
+### 1.2.13: 2024-12-17
+
+* Fix rendering function breaking if field was changed from multiple to single
+
 ### 1.2.12: 2024-12-16
 
 * Properly setup field data when rendering
