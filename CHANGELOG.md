@@ -1,3 +1,7 @@
+### 1.2.14: 2026-04-08
+
+* Fix fatal error when editing posts with existing multiple network post select field values
+
 ### 1.2.13: 2024-12-17
 
 * Fix rendering function breaking if field was changed from multiple to single

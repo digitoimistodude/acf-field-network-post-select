@@ -388,7 +388,7 @@ class sippis_acf_field_network_post_select extends acf_field { // phpcs:ignore
       $new_vals = [];
       foreach ( $field['value'] as $val ) {
         // store site_id and post_id separately
-        $new_vals[] = join( '|', $val );
+        $new_vals[] = is_array( $val ) ? join( '|', $val ) : $val;
       }
 
       $field['value'] = $new_vals;
