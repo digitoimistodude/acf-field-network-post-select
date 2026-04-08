@@ -378,6 +378,9 @@ class sippis_acf_field_network_post_select extends acf_field { // phpcs:ignore
       $field['value'] = [];
     }
 
+    // Ref: DEV-754 - Initialize $posts to avoid undefined variable warning
+    $posts = [];
+
     if ( isset( $field['multiple'] ) && 1 === $field['multiple'] ) {
       // If we have previous single value, reset
       if ( isset($field['value']['site_id'] ) ) {
