@@ -1,3 +1,7 @@
+### 1.2.15: 2026-07-14
+
+* Verify the resolved field type in the AJAX query handler so a nonce and field key minted for another ACF field type cannot be replayed against it (reported by Miro Beloud), Ref: DEV-1164
+
 ### 1.2.14: 2026-04-08
 
 * Fix fatal error when editing posts with existing multiple network post select field values
