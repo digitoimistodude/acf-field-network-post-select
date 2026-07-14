@@ -32,7 +32,14 @@ class sippis_acf_field_network_post_select extends acf_field { // phpcs:ignore
       )
     );
 
-    if ( ! acf_verify_ajax( $args['nonce'], $args['field_key'], true ) ) {
+    // Bind validation to this field type. A valid nonce and field key minted
+    // for another ACF field type must not be accepted by this handler.
+    $field = acf_get_field( $args['field_key'] );
+    if ( ! $field || ( $field['type'] ?? '' ) !== $this->name ) {
+      die();
+    }
+
+    if ( ! acf_verify_ajax( $args['nonce'], $args['field_key'], true, $this->name ) ) {
       die();
     }
 
